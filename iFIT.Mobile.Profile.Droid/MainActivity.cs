@@ -18,25 +18,15 @@ namespace iFIT.Mobile.Profile.Droid
         RecyclerView mRecyclerView;
         RecyclerView.LayoutManager mLayoutManager;
         PhotoAlbumAdapter mAdapter;
-        List<string> mPhotoAlbum;
-        
+        List<Workout> model;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             
-
-
             // Prepare the data source:
-            mPhotoAlbum = new List<string> ();
-            mPhotoAlbum.Add ("test1");
-            mPhotoAlbum.Add ("test2");
-            mPhotoAlbum.Add ("test3");  
-            mPhotoAlbum.Add ("test3");  
-            mPhotoAlbum.Add ("test3");  
-            mPhotoAlbum.Add ("test3");  
-            mPhotoAlbum.Add ("test3");  
-            mPhotoAlbum.Add ("test3");  
+            model = WorkoutRepository.GetData ();
+            
             SetContentView(Resource.Layout.activity_main);
             // Get our RecyclerView layout:
 
@@ -51,7 +41,7 @@ namespace iFIT.Mobile.Profile.Droid
             
 
             // Instantiate the adapter and pass in its data source:
-            mAdapter = new PhotoAlbumAdapter (mPhotoAlbum);
+            mAdapter = new PhotoAlbumAdapter (model);
             // Plug the adapter into the RecyclerView:
             mRecyclerView.SetAdapter (mAdapter);
             
@@ -87,21 +77,28 @@ namespace iFIT.Mobile.Profile.Droid
     
     public class PhotoViewHolder : RecyclerView.ViewHolder
     {
+        public TextView Title { get; private set; }
+        public TextView Distance { get; private set; }
+        public TextView Time { get; private set; }
         
-        public TextView Caption { get; private set; }
-
+        public TextView Calories { get; private set; }
+        public TextView WorkoutType { get; private set; }
         public PhotoViewHolder (View itemView) : base (itemView)
         {
             // Locate and cache view references:
-            Caption = itemView.FindViewById<TextView> (Resource.Id.textView);
+            Title = itemView.FindViewById<TextView> (Resource.Id.title);
+            Calories = itemView.FindViewById<TextView> (Resource.Id.calendarStat2);            
+            Distance = itemView.FindViewById<TextView> (Resource.Id.calendarStat3);
+            Time = itemView.FindViewById<TextView> (Resource.Id.calendarStat1);
+            WorkoutType = itemView.FindViewById<TextView> (Resource.Id.type);
         }
     }
     
     
     public class PhotoAlbumAdapter : RecyclerView.Adapter
     {
-        public List<string> mPhotoAlbum;
-        public PhotoAlbumAdapter (List<string> photoAlbum)
+        public List<Workout> mPhotoAlbum;
+        public PhotoAlbumAdapter (List<Workout> photoAlbum)
         {
             mPhotoAlbum = photoAlbum;
         }
@@ -119,7 +116,12 @@ namespace iFIT.Mobile.Profile.Droid
             OnBindViewHolder (RecyclerView.ViewHolder holder, int position)
         {
             PhotoViewHolder vh = holder as PhotoViewHolder;
-            vh.Caption.Text = mPhotoAlbum[position];
+            vh.Title.Text = mPhotoAlbum[position].Title;
+            vh.Distance.Text = mPhotoAlbum[position].Distance;
+            vh.Time.Text = mPhotoAlbum[position].Time;
+            vh.WorkoutType.Text = mPhotoAlbum[position].WorkoutType;
+            vh.Calories.Text = mPhotoAlbum[position].Calories;
+
         }
 
         public override int ItemCount
