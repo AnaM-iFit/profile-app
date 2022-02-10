@@ -1,4 +1,5 @@
 using Android.App;
+using Android.Graphics;
 using Android.OS;
 using Android.Widget;
 using AndroidX.AppCompat.App;
@@ -30,6 +31,17 @@ namespace iFIT.Mobile.Profile.Droid
 
             MaterialButton followButton = FindViewById<MaterialButton>(Resource.Id.follow_button);
             followButton.Text = "Follow";
+
+            var clock = FindViewById<ImageView>(Resource.Id.calorie);
+            clock.SetColorFilter(Color.Argb (100, 46, 49, 52), PorterDuff.Mode.SrcIn);
+            var timer = FindViewById<ImageView>(Resource.Id.timer);
+            timer.SetColorFilter(Color.Argb (100, 46, 49, 52), PorterDuff.Mode.SrcIn);
+            var distance = FindViewById<ImageView>(Resource.Id.distance);
+            distance.SetColorFilter(Color.Argb (100, 46, 49, 52), PorterDuff.Mode.SrcIn);
+            var elevation = FindViewById<ImageView>(Resource.Id.elevation);
+            elevation.SetColorFilter(Color.Argb (100, 46, 49, 52), PorterDuff.Mode.SrcIn);
+            var check = FindViewById<ImageView>(Resource.Id.check);
+            check.SetColorFilter(Color.Argb (100, 46, 49, 52), PorterDuff.Mode.SrcIn);
         }
     }
 }

@@ -72,12 +72,15 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Body_iFit_Trainer.png" />
-    <AndroidResource Include="Resources\drawable\CalendarListItemBackground.xml" />
+    <AndroidResource Include="Resources\drawable\icn_calorie_burn_line_dark.png" />
+    <AndroidResource Include="Resources\drawable\icn_check_circle_line.png" />
+    <AndroidResource Include="Resources\drawable\icn_distance_line_Dark.png" />
+    <AndroidResource Include="Resources\drawable\icn_elevation_gain_line_dark.png" />
+    <AndroidResource Include="Resources\drawable\icn_timer_line_dark.png" />
     <AndroidResource Include="Resources\layout\activity_main.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_profile.xml" />
-    <AndroidResource Include="Resources\layout\calendar_list_item.xml" />
     <AndroidResource Include="Resources\layout\content_main.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
