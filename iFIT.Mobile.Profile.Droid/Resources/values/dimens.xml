@@ -1,3 +1,22 @@
 ﻿<resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="calendar_list_item_cardCornerRadius">2dp</dimen>
+    <dimen name="calendar_list_item_cardElevation">3px</dimen>
+    <dimen name="calendar_list_item_height">88dp</dimen>
+    <dimen name="calendar_list_item_marginLeftRight">41dp</dimen>
+    <dimen name="calendar_list_item_marginTopBottom">4dp</dimen>
+    <dimen name="calendar_list_item_padding_bottom_top">22dp</dimen>
+    <dimen name="calendar_list_item_padding_left">16dp</dimen>
+    <dimen name="calendar_list_item_padding_right">16dp</dimen>
+    <dimen name="calendar_list_item_icon_width_height">42dp</dimen>
+    <dimen name="calendar_list_item_name_container_marginLeft">24dp</dimen>
+    <dimen name="calendar_list_item_name_container_marginTop">0dp</dimen>
+    <dimen name="calendar_list_item_name_container_width">180dp</dimen>
+    <dimen name="calendar_list_item_workout_name_textSize">24sp</dimen>
+    <dimen name="calendar_list_item_workout_description_textSize">12sp</dimen>
+    <dimen name="calendar_list_item_workout_description_marginTop">0dp</dimen>
+    <dimen name="calendar_list_item_header_textSize">14sp</dimen>
+    <dimen name="calendar_list_item_header_marginTop">20dp</dimen>
+    <dimen name="calendar_list_item_header_marginBottom">20dp</dimen>
+    <dimen name="calendar_list_item_header_marginLeft">59dp</dimen>
 </resources>
