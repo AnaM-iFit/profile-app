@@ -84,6 +84,7 @@
                         android:layout_marginTop="@dimen/calendar_list_item_name_container_marginTop">
                     <TextView
                             android:id="@+id/type"
+                            android:text="CYCLING"
                             android:layout_marginTop="@dimen/calendar_list_item_workout_description_marginTop"
                             android:lines="1"
                             android:ellipsize="end"
@@ -95,6 +96,7 @@
                             android:letterSpacing="0.05" />
                     <TextView
                             android:id="@+id/title"
+                            android:text="Kilauea Climb Interval Ride"
                             android:lines="1"
                             android:textAllCaps="true"
                             android:textSize="@dimen/calendar_list_item_workout_name_textSize"
@@ -116,6 +118,7 @@
                     <TextView
                             android:id="@+id/calendarStat1"
                             android:layout_height="match_parent"
+                            android:text="34:22"
                             android:layout_width="60dp"/>
                     <ImageView 
                             android:id="@+id/calorie" 
@@ -124,6 +127,7 @@
                             android:src="@drawable/icn_calorie_burn_line_dark" />
                     <TextView
                             android:id="@+id/calendarStat2"
+                            android:text="224 CALS"
                             android:layout_toRightOf="@id/calendarStat1"
                             android:layout_alignBaseline="@id/calendarStat1"
                             android:layout_height="match_parent"
@@ -135,6 +139,7 @@
                             android:src="@drawable/icn_distance_line_Dark" />
                     <TextView
                             android:id="@+id/calendarStat3"
+                            android:text="5.68 MI"
                             android:layout_toRightOf="@id/calendarStat2"
                             android:layout_alignBaseline="@id/calendarStat1"
                             android:layout_height="match_parent"
@@ -146,6 +151,7 @@
                             android:src="@drawable/icn_elevation_gain_line_dark" />
                     <TextView
                             android:id="@+id/calendarStat4"
+                            android:text="126 FT"
                             android:layout_toRightOf="@id/calendarStat3"
                             android:layout_alignBaseline="@id/calendarStat1"
                             android:layout_height="match_parent"
@@ -164,6 +170,7 @@
                             android:src="@drawable/icn_check_circle_line" />
                     <TextView
                             android:id="@+id/time"
+                            android:text="14:25"
                             android:textAllCaps="true"
                             android:textSize="@dimen/calendar_list_item_workout_description_textSize"
                             android:textColor="@color/named_2e3134_54alpha"
