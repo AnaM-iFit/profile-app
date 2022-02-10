@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -19,6 +20,7 @@ namespace iFIT.Mobile.Profile.Droid
         RecyclerView.LayoutManager mLayoutManager;
         PhotoAlbumAdapter mAdapter;
         List<Workout> model;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -44,6 +46,9 @@ namespace iFIT.Mobile.Profile.Droid
             mAdapter = new PhotoAlbumAdapter (model);
             // Plug the adapter into the RecyclerView:
             mRecyclerView.SetAdapter (mAdapter);
+            
+            mAdapter.ItemClick += Adapter_ItemClick;
+
             
         }
 
@@ -72,6 +77,20 @@ namespace iFIT.Mobile.Profile.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+        
+        void Adapter_ItemClick(object sender, RecyclerClickEventArgs e)
+        {
+           // var item = ViewModel.Items[e.Position];
+            //var intent = new Intent(Activity, typeof(BrowseItemDetailActivity));
+
+            //intent.PutExtra("data", Newtonsoft.Json.JsonConvert.SerializeObject(item));
+            //Activity.StartActivity(intent);
+            Intent intent = new Intent(this.ApplicationContext, typeof(ProfileActivity));
+            StartActivity(intent);
+            
+        }
+        
+
     }
     
     
@@ -83,7 +102,8 @@ namespace iFIT.Mobile.Profile.Droid
         
         public TextView Calories { get; private set; }
         public TextView WorkoutType { get; private set; }
-        public PhotoViewHolder (View itemView) : base (itemView)
+        public PhotoViewHolder (View itemView, Action<RecyclerClickEventArgs> clickListener,
+            Action<RecyclerClickEventArgs> longClickListener) : base (itemView)
         {
             // Locate and cache view references:
             Title = itemView.FindViewById<TextView> (Resource.Id.title);
@@ -91,12 +111,22 @@ namespace iFIT.Mobile.Profile.Droid
             Distance = itemView.FindViewById<TextView> (Resource.Id.calendarStat3);
             Time = itemView.FindViewById<TextView> (Resource.Id.calendarStat1);
             WorkoutType = itemView.FindViewById<TextView> (Resource.Id.type);
+            
+            itemView.Click += (sender, e) => clickListener(new RecyclerClickEventArgs { View = itemView, Position = AdapterPosition });
+            itemView.LongClick += (sender, e) => longClickListener(new RecyclerClickEventArgs { View = itemView, Position = AdapterPosition });
         }
     }
     
     
     public class PhotoAlbumAdapter : RecyclerView.Adapter
     {
+        
+        protected void OnClick(RecyclerClickEventArgs args) => ItemClick?.Invoke(this, args);
+        protected void OnLongClick(RecyclerClickEventArgs args) => ItemLongClick?.Invoke(this, args);
+        
+        public event EventHandler<RecyclerClickEventArgs> ItemClick;
+        public event EventHandler<RecyclerClickEventArgs> ItemLongClick;
+        
         public List<Workout> mPhotoAlbum;
         public PhotoAlbumAdapter (List<Workout> photoAlbum)
         {
@@ -108,7 +138,8 @@ namespace iFIT.Mobile.Profile.Droid
         {
             View itemView = LayoutInflater.From (parent.Context).
                 Inflate (Resource.Layout.PhotoCardView, parent, false);
-            PhotoViewHolder vh = new PhotoViewHolder (itemView);
+            
+            PhotoViewHolder vh = new PhotoViewHolder (itemView, OnClick, OnLongClick);
             return vh;
         }
 
@@ -128,6 +159,17 @@ namespace iFIT.Mobile.Profile.Droid
         {
             get { return mPhotoAlbum.Count; }
         }
+        
+        
+
+        
+    }
+    
+    
+    public class RecyclerClickEventArgs : EventArgs
+    {
+        public View View { get; set; }
+        public int Position { get; set; }
     }
     
 }
