@@ -5,4 +5,6 @@
     <color name="colorAccent">#3498db</color>
     <color name="white">#FFF</color>
     <color name="navy_blue">#0069D2</color>
+    <color name="named_2e3134_80alpha">#CC2E3134</color>
+    <color name="named_2e3134_54alpha">#8A2E3134</color>
 </resources>
