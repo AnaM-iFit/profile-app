@@ -36,7 +36,8 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+    <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -73,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Body_iFit_Trainer.png" />
+    <AndroidResource Include="Resources\drawable\icn_arrow_link_dark.png" />
     <AndroidResource Include="Resources\drawable\icn_calorie_burn_line_dark.png" />
     <AndroidResource Include="Resources\drawable\icn_check_circle_line.png" />
     <AndroidResource Include="Resources\drawable\icn_distance_line_Dark.png" />

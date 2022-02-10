@@ -81,35 +81,49 @@
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="@dimen/calendar_list_item_name_container_marginTop">
-                    <TextView
-                            android:id="@+id/type"
-                            android:text="CYCLING"
-                            android:layout_marginTop="@dimen/calendar_list_item_workout_description_marginTop"
-                            android:lines="1"
-                            android:ellipsize="end"
-                            android:textAllCaps="true"
-                            android:textSize="@dimen/calendar_list_item_workout_description_textSize"
-                            android:textColor="@color/named_2e3134_54alpha"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:letterSpacing="0.05" />
+                        android:layout_marginTop="10dp">
+                    <LinearLayout 
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content" 
+                            android:layout_height="wrap_content">
+                        <TextView
+                                android:id="@+id/type"
+                                android:text="CYCLING"
+                                android:layout_marginTop="@dimen/calendar_list_item_workout_description_marginTop"
+                                android:lines="1"
+                                android:ellipsize="end"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/calendar_list_item_workout_description_textSize"
+                                android:textColor="@color/named_2e3134_54alpha"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:letterSpacing="0.05" />
+                        <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+                        <TextView 
+                                android:layout_width="wrap_content" 
+                                android:layout_height="wrap_content" 
+                                android:text="💪" />
+                    </LinearLayout>
                     <TextView
                             android:id="@+id/title"
                             android:text="Kilauea Climb Interval Ride"
                             android:lines="1"
                             android:textAllCaps="true"
-                            android:textSize="@dimen/calendar_list_item_workout_name_textSize"
+                            android:textSize="18dp"
                             android:textColor="@color/named_2e3134_80alpha"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:letterSpacing="0.1" />
+                            android:layout_marginTop="10dp" />
                     
                 </LinearLayout>
                 <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
                     <ImageView
                             android:id="@+id/timer"
                             android:layout_width="16dp"
@@ -119,7 +133,13 @@
                             android:id="@+id/calendarStat1"
                             android:layout_height="match_parent"
                             android:text="34:22"
-                            android:layout_width="60dp"/>
+                            android:layout_width="wrap_content"/>
+
+                    <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                    
                     <ImageView 
                             android:id="@+id/calorie" 
                             android:layout_width="16dp" 
@@ -131,7 +151,13 @@
                             android:layout_toRightOf="@id/calendarStat1"
                             android:layout_alignBaseline="@id/calendarStat1"
                             android:layout_height="match_parent"
-                            android:layout_width="60dp"/>
+                            android:layout_width="wrap_content"/>
+
+                    <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                    
                     <ImageView
                             android:id="@+id/distance"
                             android:layout_width="16dp"
@@ -143,7 +169,13 @@
                             android:layout_toRightOf="@id/calendarStat2"
                             android:layout_alignBaseline="@id/calendarStat1"
                             android:layout_height="match_parent"
-                            android:layout_width="60dp"/>
+                            android:layout_width="wrap_content"/>
+
+                    <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                    
                     <ImageView
                             android:id="@+id/elevation"
                             android:layout_width="16dp"
@@ -155,18 +187,18 @@
                             android:layout_toRightOf="@id/calendarStat3"
                             android:layout_alignBaseline="@id/calendarStat1"
                             android:layout_height="match_parent"
-                            android:layout_width="60dp"/>
+                            android:layout_width="wrap_content"/>
                 </LinearLayout>
                 <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="20dp">
                     <ImageView
                             android:id="@+id/check"
                             android:layout_width="16dp"
                             android:layout_height="16dp"
-                            android:layout_gravity="left"
+                            android:layout_gravity="start"
                             android:src="@drawable/icn_check_circle_line" />
                     <TextView
                             android:id="@+id/time"
@@ -174,19 +206,27 @@
                             android:textAllCaps="true"
                             android:textSize="@dimen/calendar_list_item_workout_description_textSize"
                             android:textColor="@color/named_2e3134_54alpha"
-                            android:layout_width="100dp"
-                            android:layout_gravity="left"
-                            android:layout_height="30dp"
-                            android:letterSpacing="0.05" />
-                    <Button 
-                            android:id="@+id/details" 
-                            android:backgroundTint="@color/white"
-                            android:layout_width="250dp" 
-                            android:layout_gravity="right"
-                            android:layout_height="50dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.05" 
+                            android:layout_gravity="left"/>
+
+                    <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+                    
+                    <TextView 
+                            android:id="@+id/details"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="VIEW DETAILS"
-                            android:textColor="@android:color/darker_gray"
-                            android:padding="0dp"/>
+                            android:textColor="@android:color/darker_gray"/>
+                    <ImageView
+                            android:id="@+id/arrow"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/icn_arrow_link_dark" />
 
                 </LinearLayout>
             </LinearLayout>
