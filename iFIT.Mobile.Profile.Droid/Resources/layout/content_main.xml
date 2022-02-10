@@ -11,6 +11,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Tap to float action email button to go to Profile" />
+        android:text="Tap float action email button to go to Profile" />
 
 </RelativeLayout>
