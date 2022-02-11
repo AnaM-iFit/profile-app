@@ -53,6 +53,9 @@
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="iFIT.Mobile.Profile.ReactButton.Bindings, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>Libs\iFIT.Mobile.Profile.ReactButton.Bindings.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -61,10 +64,12 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FbReactions.cs" />
     <Compile Include="FriendsWorkout.cs" />
     <Compile Include="IWorkout.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="ProfileActivity.cs" />
+    <Compile Include="ReactConstants.cs" />
     <Compile Include="Repositories\WorkoutRepository.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +81,7 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
+    <None Include="Libs\iFIT.Mobile.Profile.ReactButton.Bindings.dll" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Body_iFit_Trainer.png" />
@@ -85,14 +91,22 @@
     <AndroidResource Include="Resources\drawable\icn_distance_line_Dark.png" />
     <AndroidResource Include="Resources\drawable\icn_elevation_gain_line_dark.png" />
     <AndroidResource Include="Resources\drawable\icn_timer_line_dark.png" />
+    <AndroidResource Include="Resources\drawable\ic_angry.xml" />
     <AndroidResource Include="Resources\drawable\ic_birth_date.png" />
     <AndroidResource Include="Resources\drawable\ic_deadlift.png" />
+    <AndroidResource Include="Resources\drawable\ic_gray_like.xml" />
+    <AndroidResource Include="Resources\drawable\ic_happy.xml" />
+    <AndroidResource Include="Resources\drawable\ic_heart.xml" />
+    <AndroidResource Include="Resources\drawable\ic_like.xml" />
     <AndroidResource Include="Resources\drawable\ic_ollowers.png" />
+    <AndroidResource Include="Resources\drawable\ic_sad.xml" />
+    <AndroidResource Include="Resources\drawable\ic_surprise.xml" />
     <AndroidResource Include="Resources\drawable\ic_user.png" />
     <AndroidResource Include="Resources\drawable\ic_user_0.png" />
     <AndroidResource Include="Resources\drawable\ic_user_1.png" />
     <AndroidResource Include="Resources\drawable\ic_user_2.png" />
     <AndroidResource Include="Resources\drawable\ic_user_3.png" />
+    <AndroidResource Include="Resources\drawable\react_dialog_shape.xml" />
     <AndroidResource Include="Resources\layout\activity_main.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -127,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
+    <Folder Include="Libs\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView" Version="28.0.0.3" />

@@ -2,6 +2,7 @@ using System;
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
+using Com.Amrdeveloper.Reactbutton;
 
 namespace iFIT.Mobile.Profile.Droid
 {
@@ -32,6 +33,11 @@ namespace iFIT.Mobile.Profile.Droid
 
             itemView.Click += (sender, e) => clickListener(new RecyclerClickEventArgs { View = itemView, Position = AdapterPosition });
             itemView.LongClick += (sender, e) => longClickListener(new RecyclerClickEventArgs { View = itemView, Position = AdapterPosition });
+
+            ReactButton reactButton = itemView.FindViewById<ReactButton> (Resource.Id.react_button);
+            reactButton.SetReactions(FbReactions.reactions);
+            reactButton.DefaultReaction = FbReactions.defaultReact;
+            reactButton.SetEnableReactionTooltip(true);
         }
     }
 }
