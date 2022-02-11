@@ -8,6 +8,7 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.RecyclerView.Widget;
+using iFIT.Mobile.Profile.Droid.Repositories;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 
@@ -18,7 +19,7 @@ namespace iFIT.Mobile.Profile.Droid
     {
         RecyclerView mRecyclerView;
         RecyclerView.LayoutManager mLayoutManager;
-        PhotoAlbumAdapter mAdapter;
+        WorkoutCardAdapter mAdapter;
         List<Workout> model;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -27,7 +28,7 @@ namespace iFIT.Mobile.Profile.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             
             // Prepare the data source:
-            model = WorkoutRepository.GetData ();
+            model = WorkoutRepository.GetWorkoutsFeedData ();
             
             SetContentView(Resource.Layout.activity_main);
             // Get our RecyclerView layout:
@@ -35,21 +36,19 @@ namespace iFIT.Mobile.Profile.Droid
             mRecyclerView = FindViewById<RecyclerView> (Resource.Id.recyclerView);
 
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            toolbar.Title = "Friends Feed";
             SetSupportActionBar(toolbar);
             
             // Plug in the linear layout manager:
             mLayoutManager = new LinearLayoutManager (this);
             mRecyclerView.SetLayoutManager (mLayoutManager);
             
-
             // Instantiate the adapter and pass in its data source:
-            mAdapter = new PhotoAlbumAdapter (model);
+            mAdapter = new WorkoutCardAdapter (model, true);
             // Plug the adapter into the RecyclerView:
             mRecyclerView.SetAdapter (mAdapter);
             
             mAdapter.ItemClick += Adapter_ItemClick;
-
-            
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -80,92 +79,11 @@ namespace iFIT.Mobile.Profile.Droid
         
         void Adapter_ItemClick(object sender, RecyclerClickEventArgs e)
         {
-           // var item = ViewModel.Items[e.Position];
-            //var intent = new Intent(Activity, typeof(BrowseItemDetailActivity));
-
-            //intent.PutExtra("data", Newtonsoft.Json.JsonConvert.SerializeObject(item));
-            //Activity.StartActivity(intent);
             Intent intent = new Intent(this.ApplicationContext, typeof(ProfileActivity));
             StartActivity(intent);
-            
-        }
-        
-
-    }
-    
-    
-    public class PhotoViewHolder : RecyclerView.ViewHolder
-    {
-        public TextView Title { get; private set; }
-        public TextView Distance { get; private set; }
-        public TextView Time { get; private set; }
-        
-        public TextView Calories { get; private set; }
-        public TextView WorkoutType { get; private set; }
-        public PhotoViewHolder (View itemView, Action<RecyclerClickEventArgs> clickListener,
-            Action<RecyclerClickEventArgs> longClickListener) : base (itemView)
-        {
-            // Locate and cache view references:
-            Title = itemView.FindViewById<TextView> (Resource.Id.title);
-            Calories = itemView.FindViewById<TextView> (Resource.Id.calendarStat2);            
-            Distance = itemView.FindViewById<TextView> (Resource.Id.calendarStat3);
-            Time = itemView.FindViewById<TextView> (Resource.Id.calendarStat1);
-            WorkoutType = itemView.FindViewById<TextView> (Resource.Id.type);
-            
-            itemView.Click += (sender, e) => clickListener(new RecyclerClickEventArgs { View = itemView, Position = AdapterPosition });
-            itemView.LongClick += (sender, e) => longClickListener(new RecyclerClickEventArgs { View = itemView, Position = AdapterPosition });
         }
     }
-    
-    
-    public class PhotoAlbumAdapter : RecyclerView.Adapter
-    {
-        
-        protected void OnClick(RecyclerClickEventArgs args) => ItemClick?.Invoke(this, args);
-        protected void OnLongClick(RecyclerClickEventArgs args) => ItemLongClick?.Invoke(this, args);
-        
-        public event EventHandler<RecyclerClickEventArgs> ItemClick;
-        public event EventHandler<RecyclerClickEventArgs> ItemLongClick;
-        
-        public List<Workout> mPhotoAlbum;
-        public PhotoAlbumAdapter (List<Workout> photoAlbum)
-        {
-            mPhotoAlbum = photoAlbum;
-        }
 
-        public override RecyclerView.ViewHolder
-            OnCreateViewHolder (ViewGroup parent, int viewType)
-        {
-            View itemView = LayoutInflater.From (parent.Context).
-                Inflate (Resource.Layout.PhotoCardView, parent, false);
-            
-            PhotoViewHolder vh = new PhotoViewHolder (itemView, OnClick, OnLongClick);
-            return vh;
-        }
-
-        public override void
-            OnBindViewHolder (RecyclerView.ViewHolder holder, int position)
-        {
-            PhotoViewHolder vh = holder as PhotoViewHolder;
-            vh.Title.Text = mPhotoAlbum[position].Title;
-            vh.Distance.Text = mPhotoAlbum[position].Distance;
-            vh.Time.Text = mPhotoAlbum[position].Time;
-            vh.WorkoutType.Text = mPhotoAlbum[position].WorkoutType;
-            vh.Calories.Text = mPhotoAlbum[position].Calories;
-
-        }
-
-        public override int ItemCount
-        {
-            get { return mPhotoAlbum.Count; }
-        }
-        
-        
-
-        
-    }
-    
-    
     public class RecyclerClickEventArgs : EventArgs
     {
         public View View { get; set; }

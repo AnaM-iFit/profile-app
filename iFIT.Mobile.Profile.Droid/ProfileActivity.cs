@@ -1,9 +1,12 @@
+using System.Collections.Generic;
 using Android.App;
 using Android.Graphics;
 using Android.OS;
 using Android.Widget;
 using AndroidX.AppCompat.App;
+using AndroidX.RecyclerView.Widget;
 using Google.Android.Material.Button;
+using iFIT.Mobile.Profile.Droid.Repositories;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace iFIT.Mobile.Profile.Droid
@@ -11,6 +14,11 @@ namespace iFIT.Mobile.Profile.Droid
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar")]
     public class ProfileActivity : AppCompatActivity
     {
+        RecyclerView workoutsRecyclerView;
+        RecyclerView.LayoutManager mLayoutManager;
+        WorkoutCardAdapter mAdapter;
+        IList<Workout> model;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -32,16 +40,21 @@ namespace iFIT.Mobile.Profile.Droid
             MaterialButton followButton = FindViewById<MaterialButton>(Resource.Id.follow_button);
             followButton.Text = "Follow";
 
-            var clock = FindViewById<ImageView>(Resource.Id.calorie);
-            clock.SetColorFilter(Color.Argb (100, 46, 49, 52), PorterDuff.Mode.SrcIn);
-            var timer = FindViewById<ImageView>(Resource.Id.timer);
-            timer.SetColorFilter(Color.Argb (100, 46, 49, 52), PorterDuff.Mode.SrcIn);
-            var distance = FindViewById<ImageView>(Resource.Id.distance);
-            distance.SetColorFilter(Color.Argb (100, 46, 49, 52), PorterDuff.Mode.SrcIn);
-            var elevation = FindViewById<ImageView>(Resource.Id.elevation);
-            elevation.SetColorFilter(Color.Argb (100, 46, 49, 52), PorterDuff.Mode.SrcIn);
-            var check = FindViewById<ImageView>(Resource.Id.check);
-            check.SetColorFilter(Color.Argb (100, 46, 49, 52), PorterDuff.Mode.SrcIn);
+            SetupWorkoutsRecycler();
+        }
+
+        private void SetupWorkoutsRecycler()
+        {
+            workoutsRecyclerView = FindViewById<RecyclerView> (Resource.Id.workouts_recycler);
+
+            Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+
+            model = WorkoutRepository.GetProfileWorkoutsFeedData();
+            mLayoutManager = new LinearLayoutManager (this);
+            workoutsRecyclerView.SetLayoutManager (mLayoutManager);
+            mAdapter = new WorkoutCardAdapter (model);
+            workoutsRecyclerView.SetAdapter (mAdapter);
         }
     }
 }

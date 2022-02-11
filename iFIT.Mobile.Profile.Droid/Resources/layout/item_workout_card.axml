@@ -29,6 +29,32 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="10dp">
+
+                <!-- USER NAME BLOCK-->
+                <LinearLayout
+                    android:id="@+id/user_info_view"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                <ImageView
+                    android:id="@+id/img_user"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_user" />
+                <TextView
+                    android:id="@+id/user_name"
+                    android:text="Roger “Rock” Lockridge"
+                    android:lines="1"
+                    android:layout_marginStart="20dp"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:textColor="@color/named_2e3134_80alpha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                </LinearLayout>
+                <!-- END USER NAME BLOCK-->
+
                 <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="wrap_content"
@@ -57,7 +83,8 @@
                 <TextView
                         android:id="@+id/title"
                         android:text="Kilauea Climb Interval Ride"
-                        android:lines="1"
+                        android:lines="2"
+                        android:textStyle="bold"
                         android:textAllCaps="true"
                         android:textSize="18dp"
                         android:textColor="@color/named_2e3134_80alpha"
@@ -177,5 +204,5 @@
 
             </LinearLayout>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>Ы
 </FrameLayout>
