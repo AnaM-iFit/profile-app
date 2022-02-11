@@ -10,9 +10,10 @@ namespace iFIT.Mobile.Profile.Droid
         public TextView Title { get; }
         public TextView Distance { get; }
         public TextView Time { get; }
-
         public TextView Calories { get; }
         public TextView WorkoutType { get; }
+        public TextView FriendsName { get; }
+        public ImageView FriendsImage { get; }
 
         public LinearLayout FriendInfoView { get; }
         public WorkoutCardViewHolder (View itemView, Action<RecyclerClickEventArgs> clickListener,
@@ -24,7 +25,10 @@ namespace iFIT.Mobile.Profile.Droid
             Distance = itemView.FindViewById<TextView> (Resource.Id.calendarStat3);
             Time = itemView.FindViewById<TextView> (Resource.Id.calendarStat1);
             WorkoutType = itemView.FindViewById<TextView> (Resource.Id.type);
+
             FriendInfoView = itemView.FindViewById<LinearLayout> (Resource.Id.user_info_view);
+            FriendsName = itemView.FindViewById<TextView> (Resource.Id.user_name);
+            FriendsImage = itemView.FindViewById<ImageView> (Resource.Id.img_user);
 
             itemView.Click += (sender, e) => clickListener(new RecyclerClickEventArgs { View = itemView, Position = AdapterPosition });
             itemView.LongClick += (sender, e) => longClickListener(new RecyclerClickEventArgs { View = itemView, Position = AdapterPosition });

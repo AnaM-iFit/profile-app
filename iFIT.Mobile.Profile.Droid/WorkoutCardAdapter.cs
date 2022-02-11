@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Android.App;
 using Android.Views;
+using AndroidX.Core.Content;
 using AndroidX.RecyclerView.Widget;
 
 namespace iFIT.Mobile.Profile.Droid
@@ -13,10 +15,10 @@ namespace iFIT.Mobile.Profile.Droid
         public event EventHandler<RecyclerClickEventArgs> ItemClick;
         public event EventHandler<RecyclerClickEventArgs> ItemLongClick;
 
-        public IList<Workout> workouts;
+        public IList<IWorkout> workouts;
         private readonly bool isFriendsWorkout;
 
-        public WorkoutCardAdapter (IList<Workout> workouts, bool isFriendsWorkout = false)
+        public WorkoutCardAdapter (IList<IWorkout> workouts, bool isFriendsWorkout = false)
         {
             this.workouts = workouts;
             this.isFriendsWorkout = isFriendsWorkout;
@@ -38,7 +40,14 @@ namespace iFIT.Mobile.Profile.Droid
             vh.Time.Text = workouts[position].Time;
             vh.WorkoutType.Text = workouts[position].WorkoutType;
             vh.Calories.Text = workouts[position].Calories;
+
             vh.FriendInfoView.Visibility = isFriendsWorkout ? ViewStates.Visible : ViewStates.Gone;
+            if (workouts[position] is FriendsWorkout friendsWorkout)
+            {
+                vh.FriendsImage.SetBackgroundResource(friendsWorkout.FriendsImage);
+                vh.FriendsImage.SetImageDrawable(ContextCompat.GetDrawable(Application.Context, friendsWorkout.FriendsImage));
+                vh.FriendsName.Text = friendsWorkout.FriendsName;
+            }
         }
 
         public override int ItemCount

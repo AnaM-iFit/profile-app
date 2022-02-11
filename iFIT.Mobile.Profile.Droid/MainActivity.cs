@@ -20,7 +20,7 @@ namespace iFIT.Mobile.Profile.Droid
         RecyclerView mRecyclerView;
         RecyclerView.LayoutManager mLayoutManager;
         WorkoutCardAdapter mAdapter;
-        List<Workout> model;
+        List<IWorkout> workouts;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -28,7 +28,7 @@ namespace iFIT.Mobile.Profile.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             
             // Prepare the data source:
-            model = WorkoutRepository.GetWorkoutsFeedData ();
+            workouts = WorkoutRepository.GetWorkoutsFeedData ();
             
             SetContentView(Resource.Layout.activity_main);
             // Get our RecyclerView layout:
@@ -44,7 +44,7 @@ namespace iFIT.Mobile.Profile.Droid
             mRecyclerView.SetLayoutManager (mLayoutManager);
             
             // Instantiate the adapter and pass in its data source:
-            mAdapter = new WorkoutCardAdapter (model, true);
+            mAdapter = new WorkoutCardAdapter (workouts, true);
             // Plug the adapter into the RecyclerView:
             mRecyclerView.SetAdapter (mAdapter);
             

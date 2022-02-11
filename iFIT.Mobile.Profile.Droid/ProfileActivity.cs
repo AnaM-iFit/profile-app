@@ -17,7 +17,7 @@ namespace iFIT.Mobile.Profile.Droid
         RecyclerView workoutsRecyclerView;
         RecyclerView.LayoutManager mLayoutManager;
         WorkoutCardAdapter mAdapter;
-        IList<Workout> model;
+        IList<IWorkout> model;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -50,7 +50,7 @@ namespace iFIT.Mobile.Profile.Droid
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
-            model = WorkoutRepository.GetProfileWorkoutsFeedData();
+            model = WorkoutRepository.GetUserProfileWorkoutsFeedData();
             mLayoutManager = new LinearLayoutManager (this);
             workoutsRecyclerView.SetLayoutManager (mLayoutManager);
             mAdapter = new WorkoutCardAdapter (model);

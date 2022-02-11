@@ -1,6 +1,6 @@
 namespace iFIT.Mobile.Profile.Droid
 {
-    public class Workout
+    public class Workout : IWorkout
     {
         public string Title { get; set; }
         public string WorkoutType { get; set; }

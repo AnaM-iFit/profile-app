@@ -83,7 +83,6 @@
                 <TextView
                         android:id="@+id/title"
                         android:text="Kilauea Climb Interval Ride"
-                        android:lines="2"
                         android:textStyle="bold"
                         android:textAllCaps="true"
                         android:textSize="18dp"
@@ -105,7 +104,7 @@
                         android:src="@drawable/icn_timer_line_dark" />
                 <TextView
                         android:id="@+id/calendarStat1"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="34:22"
                         android:layout_width="wrap_content"/>
 
@@ -124,7 +123,7 @@
                         android:text="224 CALS"
                         android:layout_toRightOf="@id/calendarStat1"
                         android:layout_alignBaseline="@id/calendarStat1"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_width="wrap_content"/>
 
                 <View
@@ -200,6 +199,8 @@
                         android:id="@+id/arrow"
                         android:layout_width="16dp"
                         android:layout_height="16dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginStart="3dp"
                         android:src="@drawable/icn_arrow_link_dark" />
 
             </LinearLayout>
