@@ -72,41 +72,147 @@
                 app:cardBackgroundColor="@color/white"
                 app:cardElevation="@dimen/calendar_list_item_cardElevation">
 
-<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="match_parent">-->
-
-                    <!-- TODO finish implementation for info card -->
+                <LinearLayout
+                        android:id="@+id/profile_workouts_completed_card"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingBottom="0dp"
+                        android:paddingLeft="@dimen/calendar_list_item_padding_left"
+                        android:paddingTop="@dimen/calendar_list_item_padding_bottom_top"
+                        android:paddingRight="@dimen/calendar_list_item_padding_right">
                     <ImageView
-                        android:id="@+id/img_birth_date"
+                        android:id="@+id/profile_workouts_icon"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
-                        android:src="@drawable/ic_birth_date"/>
+                        android:src="@drawable/ic_deadlift"/>
 
                     <TextView
-                        android:id="@+id/title_info"
+                        android:id="@+id/profile_workouts_title_info"
                         android:text="Workouts Completed"
                         android:lines="1"
-                        android:layout_marginStart="20dp"
+                        android:layout_marginStart="70dp"
+                        android:layout_marginTop="-45dp"
                         android:textStyle="bold"
                         android:textSize="18dp"
-                        android:textColor="@color/named_2e3134_80alpha"
+                        android:textColor="#3498db"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
                     <TextView
-                        android:id="@+id/number_info"
+                        android:id="@+id/profile_workouts_number_info"
                         android:text="1073"
                         android:lines="1"
-                        android:layout_marginStart="20dp"
+                        android:layout_marginStart="70dp"
                         android:textStyle="bold"
                         android:textSize="16dp"
-                        android:textColor="@color/named_2e3134_80alpha"
+                        android:textColor="#3498db"
+                        android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:layout_marginTop="15dp"
+                    app:cardCornerRadius="@dimen/calendar_list_item_cardCornerRadius"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/calendar_list_item_cardElevation">
 
+                <LinearLayout
+                        android:id="@+id/profile_date_of_birth"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingBottom="0dp"
+                        android:paddingLeft="@dimen/calendar_list_item_padding_left"
+                        android:paddingTop="@dimen/calendar_list_item_padding_bottom_top"
+                        android:paddingRight="@dimen/calendar_list_item_padding_right">
+                    <ImageView
+                            android:id="@+id/profile_date_of_birth_icon"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:src="@drawable/ic_birth_date"/>
+
+                    <TextView
+                            android:id="@+id/profile_date_of_birth_title_info"
+                            android:text="Date of Birth"
+                            android:lines="1"
+                            android:layout_marginStart="70dp"
+                            android:layout_marginTop="-45dp"
+                            android:textStyle="bold"
+                            android:textSize="18dp"
+                            android:textColor="#3498db"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    <TextView
+                            android:id="@+id/profile_date_of_birth_number_info"
+                            android:text="10.10.97"
+                            android:lines="1"
+                            android:layout_marginStart="70dp"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="#3498db"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:layout_marginTop="15dp"
+                    app:cardCornerRadius="@dimen/calendar_list_item_cardCornerRadius"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/calendar_list_item_cardElevation">
+
+                <LinearLayout
+                        android:id="@+id/profile_followers"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingBottom="0dp"
+                        android:paddingLeft="@dimen/calendar_list_item_padding_left"
+                        android:paddingTop="@dimen/calendar_list_item_padding_bottom_top"
+                        android:paddingRight="@dimen/calendar_list_item_padding_right">
+                    <ImageView
+                            android:id="@+id/profile_followers_icon"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:src="@drawable/ic_ollowers"/>
+
+                    <TextView
+                            android:id="@+id/profile_followers_title_info"
+                            android:text="Followers"
+                            android:lines="1"
+                            android:layout_marginStart="70dp"
+                            android:layout_marginTop="-45dp"
+                            android:textStyle="bold"
+                            android:textSize="18dp"
+                            android:textColor="#3498db"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    <TextView
+                            android:id="@+id/profile_followers_number_info"
+                            android:text="798k"
+                            android:lines="1"
+                            android:layout_marginStart="70dp"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="#3498db"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <TextView
